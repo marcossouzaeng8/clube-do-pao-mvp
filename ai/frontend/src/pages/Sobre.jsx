@@ -1,6 +1,6 @@
 import { BookOpen, Code2, Database, Network, Server, Users } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import prdMarkdown from '../../../prd.md?raw'
+import prdMarkdown from '../../../docs/prd.md?raw'
 
 const students = [
   'Danilo Sebastiany França',

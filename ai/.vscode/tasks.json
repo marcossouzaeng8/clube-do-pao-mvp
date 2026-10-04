@@ -1,0 +1,63 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "🛑 Liberar Portas (3000 e 5173)",
+      "type": "shell",
+      "command": "npm run clean",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "silent",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "🚀 Iniciar Tudo (Full Stack)",
+      "type": "shell",
+      "command": "npm run dev",
+      "isBackground": true,
+      "dependsOn": ["🛑 Liberar Portas (3000 e 5173)"],
+      "problemMatcher": {
+        "pattern": {
+          "regexp": "^$"
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".*",
+          "endsPattern": ".*Local:.*"
+        }
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "focus": false
+      }
+    },
+    {
+      "label": "⚙️ Iniciar Apenas Servidor (Backend)",
+      "type": "shell",
+      "command": "npm run dev --workspace backend",
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "⚡ Iniciar Apenas Frontend (Vite)",
+      "type": "shell",
+      "command": "npm run dev --workspace frontend",
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    }
+  ]
+}

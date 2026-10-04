@@ -1,0 +1,51 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "🚀 Iniciar Tudo em 1 Clique (Navegador Automático)",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npm run dev",
+      "cwd": "${workspaceFolder}/ai",
+      "serverReadyAction": {
+        "pattern": "Local:\\s+(http://localhost:[0-9]+)",
+        "uriFormat": "%s",
+        "action": "openExternally"
+      }
+    },
+    {
+      "name": "⚙️ Servidor Backend",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/ai/backend",
+      "program": "${workspaceFolder}/ai/backend/src/server.js",
+      "runtimeArgs": ["--watch"],
+      "preLaunchTask": "🛑 Liberar Portas (3000 e 5173)",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "name": "⚡ Frontend (Vite)",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/ai/frontend",
+      "program": "${workspaceFolder}/ai/node_modules/vite/bin/vite.js",
+      "args": ["--host", "0.0.0.0"],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "serverReadyAction": {
+        "pattern": "Local:\\s+(http://localhost:[0-9]+)",
+        "uriFormat": "%s",
+        "action": "openExternally"
+      }
+    }
+  ],
+  "compounds": [
+    {
+      "name": "🚀 Full Stack: Servidor + Frontend (Processos Isolados)",
+      "configurations": ["⚙️ Servidor Backend", "⚡ Frontend (Vite)"],
+      "stopAll": true
+    }
+  ]
+}

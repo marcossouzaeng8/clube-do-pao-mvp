@@ -7,7 +7,9 @@ MVP local de assinaturas de Kit Pao Quente, operacao de entregas e marketplace d
 - `frontend`: SPA React com Vite, Tailwind CSS, React Router, Lucide React e Leaflet.
 - `backend`: API Node.js com Express, CORS, JWT e persistencia SQLite.
 - `backend/data`: arquivo local do banco SQLite (nao versionado).
-- `prd.md`, `business-rules.md`, `architecture.md`, `tech-stack.md` e `standards.md`: documentacao do produto e do projeto.
+- `arquitetura-sistema.md`: documento de arquitetura (camadas, entidades, endpoints e fluxos, com diagramas Mermaid).
+- `standards.md`, `architecture.md`, `tech-stack.md` e `business-rules.md`: arquivos de contexto para os agentes de IA.
+- `prd.md`: requisitos do produto.
 
 ## Inicializacao
 

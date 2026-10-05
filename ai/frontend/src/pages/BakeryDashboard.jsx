@@ -1,4 +1,5 @@
 import { ArrowRight, Check, CircleAlert, Clock3, LoaderCircle, MapPin, RefreshCw, Trash2, Users } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { PageShell } from '../components/PageShell'
 import { usePcp } from '../hooks/usePcp'
 
@@ -21,7 +22,10 @@ export default function BakeryPage() {
       <main className="mx-auto max-w-5xl px-5 pb-16 pt-8 sm:px-8 sm:pt-12">
         <div className="animate-rise flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <div><p className="eyebrow">Operação de hoje</p><h1 className="page-title">Painel da padaria</h1><p className="page-lead">Tudo pronto para a próxima fornada.</p></div>
-          <button className="icon-button self-start sm:self-auto" onClick={loadDashboard} disabled={isLoading} aria-label="Atualizar demanda e rota" title="Atualizar demanda e rota"><RefreshCw size={18} className={isLoading ? 'animate-spin' : ''} /></button>
+          <div className="flex items-center gap-3 self-start sm:self-auto">
+            <Link className="button-secondary !rounded-xl !px-3.5 !py-2 text-sm" to="/operacao">Fornadas e agentes de IA <ArrowRight size={16} /></Link>
+            <button className="icon-button" onClick={loadDashboard} disabled={isLoading} aria-label="Atualizar demanda e rota" title="Atualizar demanda e rota"><RefreshCw size={18} className={isLoading ? 'animate-spin' : ''} /></button>
+          </div>
         </div>
         {error && <p className="error-message mt-7" role="alert"><CircleAlert size={17} />{error}</p>}
         <section className="demand-card animate-rise mt-8">

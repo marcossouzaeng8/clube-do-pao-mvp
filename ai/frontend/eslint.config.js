@@ -5,7 +5,7 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 import globals from 'globals'
 
 export default [
-  { ignores: ['dist'] },
+  { ignores: ['dist', 'coverage'] },
   {
     files: ['**/*.{js,jsx}'],
     languageOptions: {
@@ -20,5 +20,9 @@ export default [
       ...reactHooks.configs.recommended.rules,
       'react-refresh/only-export-components': 'warn',
     },
+  },
+  {
+    files: ['**/*.test.{js,jsx}', 'src/test/**'],
+    languageOptions: { globals: { ...globals.vitest, ...globals.node } },
   },
 ]

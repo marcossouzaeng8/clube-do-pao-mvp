@@ -2,6 +2,7 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import sqlite3 from 'sqlite3'
 import { databasePath } from '../config/database-config.js'
+import { marketplaceTables } from './schema.js'
 
 const sqlite = sqlite3.verbose()
 
@@ -38,6 +39,10 @@ export class DatabaseConnection {
 
     if (!columnNames.has('horario_entrega')) {
       await this.run("ALTER TABLE clientes ADD COLUMN horario_entrega TEXT NOT NULL DEFAULT '05:30-06:00'")
+    }
+
+    for (const createTable of marketplaceTables) {
+      await this.run(createTable)
     }
 
     return this
@@ -134,4 +139,27 @@ export function getDatabaseConnection() {
   }
 
   return databaseConnection
+}
+
+async function getReadyConnection() {
+  const connection = getDatabaseConnection()
+
+  if (!connection.database) {
+    await connection.initialize()
+  }
+
+  return connection
+}
+
+// Atalhos sobre a conexao padrao para os repositorios que nao recebem a conexao por parametro.
+export async function run(sql, parameters) {
+  return (await getReadyConnection()).run(sql, parameters)
+}
+
+export async function get(sql, parameters) {
+  return (await getReadyConnection()).get(sql, parameters)
+}
+
+export async function all(sql, parameters) {
+  return (await getReadyConnection()).all(sql, parameters)
 }

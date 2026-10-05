@@ -13,7 +13,8 @@
     "test": "npm run test --workspace backend && npm run test --workspace frontend",
     "test:backend": "npm run test --workspace backend",
     "test:frontend": "npm run test --workspace frontend",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "seed": "npm run seed --workspace backend"
   },
   "devDependencies": {
     "concurrently": "^9.1.2",

@@ -8,6 +8,7 @@ Este documento define as tecnologias e bibliotecas homologadas para o desenvolvi
 - **Estilização:** Tailwind CSS (Permite prototipação rápida de interfaces móveis sem arquivos CSS externos)
 - **Ícones:** Lucide React (Biblioteca leve e escalável)
 - **Roteamento:** React Router (Para navegação entre a tela da Padaria e a tela do Cliente)
+- **Mapa:** Leaflet com React Leaflet e tiles do OpenStreetMap (Mapa de padarias sem chave de API)
 
 ## 2. Backend (API REST)
 - **Runtime:** Node.js (v20 LTS)
@@ -15,6 +16,9 @@ Este documento define as tecnologias e bibliotecas homologadas para o desenvolvi
 - **Middlewares:** 
   - `cors`: Para permitir comunicação entre o frontend e backend rodando em portas distintas no localhost.
   - `express.json`: Para parseamento dos payloads (ex: disparo da nova fornada).
+- **Autenticação:**
+  - `bcryptjs`: Hash das senhas das contas.
+  - `jsonwebtoken`: Emissão e validação do token de sessão (JWT).
 
 ## 3. Persistência de Dados (Infraestrutura Local)
 - **Banco de Dados:** SQLite3 

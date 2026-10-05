@@ -1,4 +1,4 @@
-import { ArrowRight, Flame } from 'lucide-react'
+import { ArrowRight, MapPin } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { PageShell } from '../components/PageShell'
 
@@ -23,6 +23,14 @@ export default function HomePage() {
             </Link>
             <Link className="button-secondary justify-between sm:min-w-64" to="/padaria">
               Acessar Painel da Padaria <ArrowRight size={18} />
+            </Link>
+          </div>
+          <div className="mt-3 grid gap-3 sm:flex sm:flex-wrap">
+            <Link className="button-secondary justify-between sm:min-w-52" to="/mapa">
+              <span className="inline-flex items-center gap-2"><MapPin size={18} /> Pão quente no mapa</span> <ArrowRight size={18} />
+            </Link>
+            <Link className="button-secondary justify-between sm:min-w-64" to="/login">
+              Entrar ou criar conta <ArrowRight size={18} />
             </Link>
           </div>
           <div className="mt-10 flex items-center gap-3 text-sm font-semibold text-[#9a8274]">
